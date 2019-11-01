@@ -2,7 +2,7 @@ const FolderService = {
     getAllNotes(knexInstance) {
       return knexInstance
         .select('*')
-        .from('note')
+        .from('notes')
         .then(note => {
           return note;
         });

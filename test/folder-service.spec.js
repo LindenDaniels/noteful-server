@@ -21,7 +21,7 @@ describe('Folder service object', function() {
     }
   ];
 
-  let newFolder = [{ folder_name: 'Grocery', id: 4 }];
+  let newFolder = [ { id: 4, folder_name: 'Grocery' } ];
 
   before('Get database instance', () => {
     db = knex({
@@ -35,7 +35,7 @@ describe('Folder service object', function() {
   });
 
   beforeEach('Reset the test database', () => {
-    return db('folders').truncate();
+    return db.raw('TRUNCATE folders RESTART IDENTITY CASCADE')
   });
 
   beforeEach('Insert test data into folder table', () => {
