@@ -42,10 +42,10 @@ describe('Folder service object', function() {
     return db.into('folders').insert(testFolders);
   });
 
-  describe('getAllFolders', () => {
+  describe.only('getAllFolders', () => {
     it('it returns all folders from folders table', () => {
       return FolderService.getAllFolders(db).then(folders => {
-        expect(folders).to.eql(testFolders);
+        expect(folders).to.have.members(testFolders);
       });
     });
   });
@@ -53,8 +53,7 @@ describe('Folder service object', function() {
   describe('addFolder', () => {
     it('it should add a folder to the folder table', () => {
       return FolderService.addFolder(db, newFolder).then(folder => {
-        expect(folder).to.eql(newFolder);
-        console.log(folder, newFolder);
+        expect(folder).to.equal(newFolder);
       });
     });
   });

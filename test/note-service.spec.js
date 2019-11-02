@@ -7,17 +7,17 @@ describe('Note service object', function() {
   let db;
 
   let testNotes = [
-    {
+    { content: 'Im a test note',
       note_name: 'Important',
       id: 1,
       folder_id: 1
     },
-    {
+    { content: 'So am I',
       note_name: 'Super',
       id: 2,
       folder_id: 1
     },
-    {
+    { content: 'Me too',
       note_name: 'Spangley',
       id: 3,
       folder_id: 1
@@ -57,7 +57,6 @@ describe('Note service object', function() {
     it('it should add a folder to the folder table', () => {
       return NoteService.addFolder(db, newNote).then(note => {
         expect(note).to.eql(newNote);
-        console.log(note, newNote);
       });
     });
   });
