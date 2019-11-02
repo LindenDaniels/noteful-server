@@ -42,10 +42,10 @@ describe('Folder service object', function() {
     return db.into('folders').insert(testFolders);
   });
 
-  describe.only('getAllFolders', () => {
+  describe('getAllFolders', () => {
     it('it returns all folders from folders table', () => {
       return FolderService.getAllFolders(db).then(folders => {
-        expect(folders).to.have.members(testFolders);
+        expect(folders).to.have.deep.members(testFolders);
       });
     });
   });
