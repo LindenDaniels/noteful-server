@@ -50,7 +50,7 @@ describe('Folder service object', function() {
     });
   });
 
-  describe.only('addFolder', () => {
+  describe('addFolder', () => {
     it('it should add a folder to the folder table', () => {
       return FolderService.addFolder(db, newFolder).then(folder => {
         expect(folder).to.eql(newFolder);
