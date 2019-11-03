@@ -24,7 +24,7 @@ describe('Note service object', function() {
     }
   ];
 
-  let newNote = [{ note_name: 'Grocery', content: 'Get some cheese', id: 4, folder_id: 2}];
+  let newNote = [{ note_name: 'Grocery', content: 'Get some cheese', id: 4, folder_id: 2, modified: new Date()}];
 
   before('Get database instance', () => {
     db = knex({
