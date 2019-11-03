@@ -21,7 +21,7 @@ describe('Folder service object', function() {
     }
   ];
 
-  let newFolder = [ { id: 4, folder_name: 'Grocery' } ];
+  let newFolder =  { id: 4, folder_name: 'Grocery' } ;
 
   before('Get database instance', () => {
     db = knex({
@@ -53,7 +53,7 @@ describe('Folder service object', function() {
   describe.only('addFolder', () => {
     it('it should add a folder to the folder table', () => {
       return FolderService.addFolder(db, newFolder).then(folder => {
-        expect(folder).to.have.deep.members(newFolder);
+        expect(folder).to.eql(newFolder);
       });
     });
   });
