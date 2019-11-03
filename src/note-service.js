@@ -11,10 +11,10 @@ const FolderService = {
     addNote(knexInstance, note) {
       return knexInstance
         .insert(note)
-        .into('note')
+        .into('notes')
         .returning('*')
         .then(note => {
-          return note[0];
+          return note;//[0];
         });
     },
   

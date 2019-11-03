@@ -50,10 +50,10 @@ describe('Folder service object', function() {
     });
   });
 
-  describe('addFolder', () => {
+  describe.only('addFolder', () => {
     it('it should add a folder to the folder table', () => {
       return FolderService.addFolder(db, newFolder).then(folder => {
-        expect(folder).to.equal(newFolder);
+        expect(folder).to.have.deep.members(newFolder);
       });
     });
   });

@@ -24,7 +24,7 @@ describe('Note service object', function() {
     }
   ];
 
-  let newNote = [{ note_name: 'Grocery', id: 4, folder_id: 2 }];
+  let newNote = [{ note_name: 'Grocery', content: 'Get some cheese', id: 4, folder_id: 2}];
 
   before('Get database instance', () => {
     db = knex({
@@ -54,9 +54,9 @@ describe('Note service object', function() {
   });
 
   describe('addNote', () => {
-    it('it should add a folder to the folder table', () => {
-      return NoteService.addFolder(db, newNote).then(note => {
-        expect(note).to.eql(newNote);
+    it('it should add a note to the note table', () => {
+      return NoteService.addNote(db, newNote).then(note => {
+        expect(note).to.have.deep.members(newNote);
       });
     });
   });
