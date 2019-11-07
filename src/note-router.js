@@ -42,7 +42,7 @@ noteRouter
       .then(note => {
         res
           .status(201)
-          .location(`http://localhost:8080/note/${note.id}`)
+          .location(`http://localhost:8000/notes/${note.id}`)
           .json({
             id: note.id.toString(),
             name: xss(note.note_name),
@@ -76,7 +76,7 @@ noteRouter
   .delete(bodyParser, (req, res) => {
     const { id } = req.params;
     noteService.deleteNote(req.app.get('db'), id).then(note => {
-      res.status(204).send('Bookmark deleted');
+      res.status(204).send('Note deleted');
     });
   });
 

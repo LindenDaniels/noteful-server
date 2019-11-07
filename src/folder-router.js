@@ -31,7 +31,7 @@ folderRouter
       .then(folder => {
         res
           .status(201)
-          .location(`http://localhost:8080/api/folder/${folder.id}`)
+          .location(`http://localhost:8000/api/folder/${folder.id}`)
           .json({ id: folder.id.toString(), name: xss(folder.folder_name) });
       })
       .catch(next);
