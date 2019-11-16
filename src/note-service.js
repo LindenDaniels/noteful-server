@@ -14,7 +14,7 @@ const FolderService = {
         .into('notes')
         .returning('*')
         .then(note => {
-          return note;//[0];
+          return note[0];
         });
     },
   
