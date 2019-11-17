@@ -39,9 +39,9 @@ noteRouter
       
   })
   .post(bodyParser, (req, res, next) => {
-    console.log(req.body);
+    
     const { name, folderId, content, modified } = req.body;
-    const newNote = { note_name: name, folder_id: folderId, content, modified};
+    const newNote = { note_name: name, folder_id: folderId, content, modified };
 
     for (const [key, value] of Object.entries(newNote)) {
       if (value == null) {
@@ -55,7 +55,7 @@ noteRouter
       .then(note => {
         res
           .status(201)
-          .location(`http://localhost:8000/notes/${note.id}`)
+          .location(`http://localhost:8000/api/notes/${note.id}`)
           
           .json({
             id: note.id.toString(),

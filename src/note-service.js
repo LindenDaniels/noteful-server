@@ -1,4 +1,4 @@
-const FolderService = {
+const NoteService = {
     getAllNotes(knexInstance) {
       return knexInstance
         .select('*')
@@ -33,4 +33,4 @@ const FolderService = {
     }
   };
   
-  module.exports = FolderService;
+  module.exports = NoteService;
