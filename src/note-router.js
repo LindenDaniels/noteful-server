@@ -39,6 +39,20 @@ noteRouter
       
   })
   .post(bodyParser, (req, res, next) => {
+    const { id, name, modified, folderid, content } = req.body
+    const newNote = { id, name, modified, folderid, content }
+
+    NoteService
+    .addNote(req.app.get('db'), { newNote })
+    .then(note => {
+      res
+        .status(201)
+        .location(`http://localhost:8000/api/note/${note.id}`)
+        .json({ id: note.id.toString(), name: xss(note.note_name) });
+    })
+    .catch(next);
+});
+  /*.post(bodyParser, (req, res, next) => {
     
     const { name, folderId, content, modified } = req.body;
     const newNote = { note_name: name, folder_id: folderId, content, modified };
@@ -66,7 +80,8 @@ noteRouter
           });
       })
       .catch(next);
-  });
+  });*/
+
 
 noteRouter
   .route('/:id')

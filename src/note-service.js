@@ -8,15 +8,15 @@ const NoteService = {
         });
     },
   
-    addNote(knexInstance, note) {
+    addNote(knexInstance, newNote) {
       return knexInstance
-        .insert(note)
+        .insert(newNote)
         .into('notes')
-        .returning('*')
-        .then(note => {
-          return note[0];
-        });
-    },
+        .returning("*")
+        .then(rows => {
+          return rows[0];
+        })
+      },
   
     getNoteById(knexInstance, id) {
       return knexInstance
