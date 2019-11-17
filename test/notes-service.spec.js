@@ -1,7 +1,7 @@
 require('dotenv').config();
 const knex = require('knex');
 
-const NoteService = require('../src/note-service');
+const NotesService = require('../src/Notes/notes-service');
 
 describe('Note service object', function() {
   let db;
@@ -47,7 +47,7 @@ describe('Note service object', function() {
 
   describe('getAllNotes', () => {
     it('it returns all notes from notes table', () => {
-      return NoteService.getAllNotes(db).then(notes => {
+      return NotesService.getAllNotes(db).then(notes => {
         expect(notes).to.eql(testNotes);
       });
     });
@@ -55,7 +55,7 @@ describe('Note service object', function() {
 
   describe('addNote', () => {
     it('it should add a note to the note table', () => {
-      return NoteService.addNote(db, newNote).then(note => {
+      return NotesService.insertNote(db, newNote).then(note => {
         expect(note).to.have.deep.members(newNote);
       });
     });
