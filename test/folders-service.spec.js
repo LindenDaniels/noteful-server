@@ -1,7 +1,7 @@
 require('dotenv').config();
 const knex = require('knex');
 
-const FolderService = require('../src/folder-service');
+const FoldersService = require('../src/Folders/folders-service');
 
 describe('Folder service object', function() {
   let db;
@@ -44,7 +44,7 @@ describe('Folder service object', function() {
 
   describe('getAllFolders', () => {
     it('it returns all folders from folders table', () => {
-      return FolderService.getAllFolders(db).then(folders => {
+      return FoldersService.getAllFolders(db).then(folders => {
         expect(folders).to.have.deep.members(testFolders);
       });
     });
@@ -52,7 +52,7 @@ describe('Folder service object', function() {
 
   describe('addFolder', () => {
     it('it should add a folder to the folder table', () => {
-      return FolderService.addFolder(db, newFolder).then(folder => {
+      return FoldersService.insertFolder(db, newFolder).then(folder => {
         expect(folder).to.eql(newFolder);
       });
     });
