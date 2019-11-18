@@ -33,7 +33,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "now ./build",
-    "postdeploy": "now alias -A ./build/now.json"
+    "postdeploy": "now alias -A ./build/now.json",
+    "dev": "nodemon src/server.js"
   },
   "eslintConfig": {
     "extends": "react-app"

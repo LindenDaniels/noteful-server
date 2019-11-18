@@ -2,3 +2,4 @@
 {"message":"Note with id 3 deleted.","level":"info"}
 {"message":"Note with id undefined not found.","level":"error"}
 {"message":"Note with id undefined not found.","level":"error"}
+{"message":"Note with id 9 deleted.","level":"info"}
