@@ -28,8 +28,8 @@ NotesRouter
   })
 
   .post(bodyParser, (req, res, next) => {
-    const { id, name, modified, folderid, content } = req.body
-    const newNote = { id, name, modified, folderid, content }
+    const { id, name, modified, folder_id, content } = req.body
+    const newNote = { id, name, modified, folder_id, content }
 
     for (const field of ['name', 'content']) {
       if (!newNote[field]) {
